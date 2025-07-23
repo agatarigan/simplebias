@@ -1,77 +1,630 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SimpleBias PRO</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f9f9f9;
-      color: #333;
-    }
-    header {
-      background: #000;
-      color: #fff;
-      padding: 2rem;
-      text-align: center;
-    }
-    section {
-      padding: 2rem;
-      max-width: 800px;
-      margin: auto;
-    }
-    h1, h2 {
-      margin-bottom: 1rem;
-    }
-    p {
-      margin-bottom: 1.5rem;
-      line-height: 1.6;
-    }
-    .cta {
-      display: inline-block;
-      background: #000;
-      color: #fff;
-      padding: 1rem 2rem;
-      text-decoration: none;
-      border-radius: 8px;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      color: #aaa;
-      font-size: 0.9rem;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SimpleBias - Indikator Trading TradingView Terpercaya</title>
+    <meta name="description" content="Indikator Simple Bias untuk TradingView. Tingkatkan profit trading dengan signal akurat. Berlangganan mulai 150rb/bulan + akses komunitas Telegram.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ffd700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero-content .description {
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.8;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #ffa500);
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: #667eea;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 400px;
+            margin: 0 auto;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: bold;
+            margin: 1rem 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .price-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .benefits {
+            list-style: none;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .benefits li {
+            padding: 0.5rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .benefits li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .testimonial-role {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .stars {
+            color: #ffa500;
+            margin-bottom: 1rem;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .faq-item {
+            background: #f8f9fa;
+            margin: 1rem 0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            background: #667eea;
+            color: white;
+            padding: 1.5rem;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: #5a67d8;
+        }
+
+        .faq-answer {
+            padding: 1.5rem;
+            display: none;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .faq-answer.active {
+            display: block;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: #ff6b6b;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #ff5252;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .features-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 2px 2px 10px #999;
+        }
+
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            background: #667eea;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 20px;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .scroll-top:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>SimpleBias PRO</h1>
-    <p>Sistem analisa bias multi-timeframe untuk trader profesional</p>
-  </header>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">SimpleBias</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <section>
-    <h2>Kenapa SimpleBias?</h2>
-    <p>Karena kamu butuh sistem yang jelas. Bukan feeling. Bukan tebak-tebakan. SimpleBias PRO bantu kamu ambil keputusan berdasarkan logika yang bisa diulang.</p>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Simple Bias Indicator</h1>
+                <p class="subtitle">Indikator Trading TradingView Yang Menguntungkan</p>
+                <p class="description">
+                    Tingkatkan profit trading Anda dengan indikator Simple Bias yang telah terbukti akurat. 
+                    Dapatkan signal buy/sell yang tepat waktu dan bergabunglah dengan komunitas trader sukses.
+                </p>
+                <a href="#pricing" class="cta-button">Mulai Trading Profit Sekarang!</a>
+            </div>
+        </div>
+    </section>
 
-    <h2>Apa yang kamu dapat?</h2>
-    <ul>
-      <li>6 tabel analisa otomatis: bias, logika, EMA, waktu, harga, risiko</li>
-      <li>Integrasi multi-timeframe (1m, 5m, 15m)</li>
-      <li>Manajemen risiko otomatis</li>
-      <li>Signal Buy/Sell jelas di jam tertentu</li>
-    </ul>
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Mengapa Pilih Simple Bias?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>Signal Akurat</h3>
+                    <p>Algoritma canggih yang menganalisis pergerakan harga dan memberikan signal buy/sell dengan tingkat akurasi tinggi untuk memaksimalkan profit Anda.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Real-Time Alerts</h3>
+                    <p>Dapatkan notifikasi instant ketika ada peluang trading. Tidak akan melewatkan momen profit lagi dengan alert yang tepat waktu.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Easy to Use</h3>
+                    <p>Interface sederhana dan user-friendly. Cocok untuk trader pemula hingga profesional. Setup sekali, profit selamanya.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Multi Timeframe</h3>
+                    <p>Bekerja optimal di semua timeframe dari M1 hingga Daily. Fleksibel untuk scalping, day trading, maupun swing trading.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💎</div>
+                    <h3>Risk Management</h3>
+                    <p>Built-in risk management tools yang membantu Anda mengatur stop loss dan take profit secara otomatis untuk melindungi modal.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Community Support</h3>
+                    <p>Akses eksklusif ke komunitas Telegram dengan 500+ trader aktif. Berbagi strategi, analisa, dan tips profit bersama.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <h2>Cocok untuk siapa?</h2>
-    <p>Scalper, day trader, swing trader — yang ingin analisa terstruktur dan bisa dijalankan berulang.</p>
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title">Investasi Terbaik untuk Trading Anda</h2>
+            <div class="pricing-card">
+                <h3>Simple Bias Pro</h3>
+                <div class="price">Rp 175.000<span style="font-size: 1rem;">/bulan</span></div>
+                <p class="price-subtitle">Paket lengkap untuk trader serius</p>
+                <ul class="benefits">
+                    <li>Akses penuh Simple Bias Indicator</li>
+                    <li>Real-time alerts & notifications</li>
+                    <li>Multi timeframe support</li>
+                    <li>Risk management tools</li>
+                    <li>Akses komunitas Telegram VIP</li>
+                    <li>Tutorial lengkap penggunaan</li>
+                    <li>Support 24/7 via WhatsApp</li>
+                    <li>Update indikator gratis selamanya</li>
+                </ul>
+                <a href="#" class="cta-button" onclick="processPayment()">Berlangganan Sekarang</a>
+                <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+                    💡 Sistem berlangganan bulanan • Batalkan kapan saja • Garansi 7 hari
+                </p>
+            </div>
+        </div>
+    </section>
 
-    <a href="#" class="cta">Pelajari Lebih Lanjut</a>
-  </section>
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Apa Kata Trader yang Sudah Profit?</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">
+                        "Simple Bias benar-benar mengubah cara trading saya. Dalam 2 minggu pertama, profit saya naik 40%. 
+                        Signal-nya akurat dan komunitas Telegram-nya sangat supportive!"
+                    </p>
+                    <div class="testimonial-author">Ahmad R.</div>
+                    <div class="testimonial-role">Day Trader, Jakarta</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">
+                        "Sebagai pemula, saya bingung dengan indikator yang rumit. Simple Bias sangat mudah dipahami 
+                        dan hasil trading saya jadi lebih konsisten. Worth every penny!"
+                    </p>
+                    <div class="testimonial-author">Sari M.</div>
+                    <div class="testimonial-role">Swing Trader, Surabaya</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">
+                        "Risk management feature-nya luar biasa. Saya jadi lebih tenang trading karena stop loss 
+                        dan take profit sudah diatur otomatis. Highly recommended!"
+                    </p>
+                    <div class="testimonial-author">Budi S.</div>
+                    <div class="testimonial-role">Scalper, Bandung</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <footer>
-    &copy; 2025 SimpleBias.com — Semua hak dilindungi
-  </footer>
-</body>
-</html>
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    Bagaimana cara install Simple Bias di TradingView?
+                </div>
+                <div class="faq-answer">
+                    Setelah pembayaran berhasil, Anda akan menerima link akses indikator dan tutorial lengkap via email. 
+                    Proses install sangat mudah, hanya perlu copy-paste script ke TradingView. Tim support siap membantu 24/7.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    Apakah cocok untuk trader pemula?
+                </div>
+                <div class="faq-answer">
+                    Sangat cocok! Simple Bias dirancang user-friendly untuk semua level trader. 
+                    Tersedia tutorial lengkap dan komunitas Telegram yang siap membantu trader pemula.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    Berapa tingkat akurasi signal-nya?
+                </div>
+                <div class="faq-answer">
+                    Berdasarkan backtesting dan pengalaman trader di komunitas, tingkat akurasi berkisar 75-85% 
+                    tergantung pair dan timeframe yang digunakan. Konsistensi profit lebih penting dari win rate tinggi.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    Bisa digunakan di semua pair mata uang?
+                </div>
+                <div class="faq-answer">
+        
