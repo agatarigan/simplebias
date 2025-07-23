@@ -51,7 +51,7 @@
 
 /* Dark Mode Variables */
 .dark-mode {
-  --bg-primary: #0f172a;
+  --bg-primary: #1e293b;
   --bg-secondary: #1e293b;
   --bg-tertiary: #334155;
   --bg-gradient: linear-gradient(135deg, #1e293b 0%, #334155 100%);
@@ -59,9 +59,9 @@
   --bg-hero: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
   
   --text-primary: #f1f5f9;
-  --text-secondary: #cbd5e1;
+  --text-secondary: #64748b;
   --text-tertiary: #94a3b8;
-  --text-inverse: #0f172a;
+  --text-inverse: #ffffff;
   
   --border-primary: #334155;
   --border-secondary: #475569;
@@ -636,9 +636,9 @@ section {
 }
 
 .plan-button {
-  width: 100%;
+  width: calc(100% - 4rem);
   padding: 1rem 2rem;
-  margin: 0 2rem 2rem;
+  margin: 0 0 4rem 2rem;
   font-size: var(--font-size-lg);
   font-weight: 700;
   border: none;
@@ -648,7 +648,11 @@ section {
 }
 
 .plan-button.primary {
-  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  background: linear-gradient(
+    135deg, 
+    var(--primary), 
+    var(--primary-dark)
+  );
   color: var(--text-inverse);
 }
 
