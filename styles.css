@@ -720,6 +720,8 @@ section {
   color: var(--text-inverse);
   font-weight: 700;
   font-size: var(--font-size-lg);
+  box-sizing: border-box;
+  flex-shrink: 0;
 }
 
 .testimonial-info h4 {
